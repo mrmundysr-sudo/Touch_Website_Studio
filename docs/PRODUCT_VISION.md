@@ -1,50 +1,12 @@
-# [App Name] — Product Vision
+# Touch Website Studio — Product Vision
+Status: Approved first-build direction, 2026-11-01.
 
-> Status: Draft / Brainstorming. Nothing in this file authorizes implementation.
+Mundy Morning Studios Android app for creating, editing, maintaining and publishing user-owned websites from a phone.
 
-## Product identity
-- **Working name:** [Name]
-- **Mundy Morning Studios**
-- **One-sentence promise:** [What the app does]
-- **Audience:** [Who benefits]
-- **Problem:** [What problem is solved]
-- **Distinctive advantage:** [Why this app]
+Audience: beginners, freelancers, small businesses, existing AI users. Value: ongoing website ownership and easy routine changes, not just initial generation.
 
-## Confirmed decisions
-- [ ] [Only decisions explicitly approved by product owner]
+Core flows: My Websites -> Create/Import -> Visual edit -> Save -> Preview -> Publish -> Reopen -> Quick Edit -> Republish.
 
-## Proposed features (not approved)
-- [ ] [Idea and user value]
+Local-first editable projects, reusable templates, reliable image editing, independent deployable site ZIP, separate editable project ZIP, version history and rollback. Customer owns hosting and domain. Netlify is first one-button publishing integration, with manual export fallback. AI-agnostic optional share-sheet/ZIP exchange, no required API subscription. Initial two templates: business and personal/family. Monetization intended as part of Touch app family; final pricing undecided.
 
-## User journeys
-1. **First-time user:** [steps]
-2. **Core repeat use:** [steps]
-3. **Failure/recovery:** [steps]
-
-## Platform and UX
-- Android-first, phone-friendly.
-- Accessibility, offline behavior, privacy, and export requirements: [define per app].
-- Design direction: [describe].
-
-## Reuse from existing apps
-- **Candidate modules:** [Touch Toolkit, Touch Reader, Touch Personal AI, etc.]
-- **Verification required:** audit source, licenses, compatibility and performance before reuse.
-
-## Monetization and trust
-- Free baseline and optional monetization: [decision].
-- User data ownership, consent, privacy: [decision].
-
-## First release (MVP)
-- In scope: [approved]
-- Out of scope: [approved]
-- Success criteria: [testable]
-
-## Long-term opportunities
-- [Future possibilities, explicitly not current requirements]
-
-## Open questions
-- [Question] — Owner: [name] — Status: unresolved
-
-## Approval
-- **Product vision approved:** No
-- **Approved by / date:** [pending]
+See WEBSITE_STUDIO_BUILD_BRIEF.md for authorized APK scope. Follow CLAUDE.md and project planning/validation rules.
