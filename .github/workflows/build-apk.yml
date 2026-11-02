@@ -33,7 +33,11 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - uses: android-actions/setup-android@v3
+      - name: Android SDK packages (runner already ships the SDK)
+        run: |
+          SDKM=$(ls "$ANDROID_HOME"/cmdline-tools/*/bin/sdkmanager | tail -1)
+          yes | "$SDKM" --licenses > /dev/null || true
+          "$SDKM" "platforms;android-34" "build-tools;34.0.0"
 
       - uses: gradle/actions/setup-gradle@v4
 

@@ -75,7 +75,7 @@
         box.appendChild(h('h2', { text: title }));
         if (message) box.appendChild(h('p', { text: message }));
         box.appendChild(h('div', { class: 'btns' }, buttons.map(function (b) {
-          return h('button', { class: b.cls || 'sec', text: b.label, onclick: function () { api.close(); resolve(b.value); } });
+          return h('button', { class: b.cls || 'sec', text: b.label, onclick: function () { resolve(b.value); api.close(); } });
         })));
       }, { onClose: function () { resolve(undefined); } });
     });
@@ -89,7 +89,7 @@
         box.appendChild(input);
         box.appendChild(h('div', { class: 'btns' },
           h('button', { class: 'sec', text: 'Cancel', onclick: function () { api.close(); } }),
-          h('button', { text: 'OK', onclick: function () { done = true; api.close(); resolve(input.value.trim()); } })));
+          h('button', { text: 'OK', onclick: function () { done = true; resolve(input.value.trim()); api.close(); } })));
         setTimeout(function () { input.focus(); input.select(); }, 50);
       }, { onClose: function () { if (!done) resolve(null); } });
     });
