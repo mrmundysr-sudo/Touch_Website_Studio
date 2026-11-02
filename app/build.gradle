@@ -1,0 +1,35 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.touchwebsitestudio.app'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.touchwebsitestudio.app"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "0.1.0"
+    }
+    buildTypes {
+        release { minifyEnabled false }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    // UI lives in assets/studio (plain HTML/JS/CSS, no bundler).
+    androidResources {
+        noCompress 'png', 'jpg', 'webp', 'json', 'js', 'css', 'html'
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.json:json:20240303'
+}

@@ -1,0 +1,68 @@
+name: Build and test (debug APK)
+
+# Runs on every claude/** development branch push and on demand. Never touches main, never creates releases,
+# never uses signing material or secrets: the APK is a debug build uploaded as a workflow artifact.
+on:
+  push:
+    branches: ["claude/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-apk-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: JS tests (site model, renderer, change detection)
+        run: node --test tests/*.test.js
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: android-actions/setup-android@v3
+
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Unit tests (storage, ZIP, Netlify client against a local mock)
+        run: ./gradlew --no-daemon testDebugUnitTest
+
+      - name: Build debug APK
+        run: ./gradlew --no-daemon assembleDebug
+
+      - name: Verify APK
+        run: |
+          APK=$(ls app/build/outputs/apk/debug/*.apk)
+          echo "APK: $APK"; ls -l "$APK"
+          "$ANDROID_HOME"/build-tools/*/aapt2 dump badging "$APK" | grep -E "package:|application-label:|sdkVersion|uses-permission"
+          sha256sum "$APK"
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Touch-Website-Studio-debug-${{ github.run_number }}
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Upload test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports-${{ github.run_number }}
+          path: app/build/reports/tests/
+          if-no-files-found: ignore
+          retention-days: 14
