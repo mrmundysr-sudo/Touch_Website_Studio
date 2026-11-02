@@ -1,6 +1,6 @@
-# [App Name] — Development Plan
+# Touch Website Studio — Development Plan
 
-> Status: Not approved. Plan only after inspecting PRODUCT_VISION.md and DECISIONS.md. No implementation without explicit approval.
+> Status: First APK build authorized 2026-11-01/02 (see WEBSITE_STUDIO_BUILD_BRIEF.md). Anything beyond that brief remains unapproved.
 
 ## Source of truth and working rules
 - GitHub repository is the source of truth.
@@ -27,7 +27,12 @@
 - Permissions/security: [pending]
 - Build and CI workflows: [pending]
 
-## Milestones
+## Milestones (first build status; see docs/knowledge/reports/ for evidence)
+- [x] Phase 1 core: dashboard, editor, templates, save/reopen, export, Netlify attempt, versions, ZIP round trip, CI (implemented; verification status in the work report)
+- [ ] Phase 2: real-device tests, budget-phone performance, accessibility audit, live Netlify verification, import of arbitrary HTML sites
+- [ ] Phase 3: release readiness (signing, privacy review, crash handling) — not authorized
+
+## Original milestone template
 ### Phase 0 — Audit and design
 - [ ] Review approved requirements and existing code
 - [ ] Document risks, dependencies, unknowns
@@ -57,8 +62,8 @@
 - [Risk, impact, mitigation]
 
 ## Approval
-- **Development authorized:** No
-- **Approved scope / date:** [pending]
+- **Development authorized:** Yes, first debug APK only (no release, no merge to main without owner approval)
+- **Approved scope / date:** WEBSITE_STUDIO_BUILD_BRIEF.md, approved by owner 2026-11-01; build started 2026-11-02
 
 ## Knowledge retention (template-wide requirement)
 - [ ] Before each authorized assignment, review relevant docs/knowledge/ references.

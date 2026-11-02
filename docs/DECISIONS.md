@@ -14,3 +14,11 @@
 - DEC-011 Directional: Bundle with Touch subscription family; final price/payment structure not finalized.
 
 Technical design choices not listed here remain open and must be justified/tested.
+
+## 2026-11-02 — First-build implementation decisions (made by Claude within the authorized brief; owner may override)
+- DEC-012 Technical: Native Android shell (Java, no AndroidX, minSdk 24) hosting an offline HTML/JS UI in a WebView, with a small promise-style native bridge. Chosen for fastest working APK, one shared site renderer for editor/preview/export, and low dependency count. Tradeoff: WebView performance on very low-end phones is untested.
+- DEC-013 Technical: One shared project schema (`site`, `theme`, `sections[]`, `publish`); the two templates (business, family) differ only in starting content and theme. Section types: hero, text, cards, gallery, contact.
+- DEC-014 Technical: Netlify uses a user-supplied personal access token, stored encrypted with a non-exportable Android Keystore key; never written to projects, ZIPs, logs or the repo. Publishing uses plain (production) ZIP deploys to a saved site ID; "preview" is an in-app local preview plus an explicit approval checkbox, not a Netlify draft deploy.
+- DEC-015 Technical: Change detection by content hash (site+theme+sections). Snapshots are taken on save when content changed (max 25). Restore snapshots the current state first and never touches photos or the publish link.
+- DEC-016 Technical: Project ZIP import always creates a NEW project and resets the publish link; unknown JSON fields and unknown section types are preserved and flagged, never dropped. Importing arbitrary third-party HTML sites is NOT in the first build (**Proposed** for later).
+- DEC-017 Process: CI is a self-contained workflow (`.github/workflows/build-apk.yml`) building a debug APK on `claude/**` pushes. The shared hub workflow was not used because the hub repository is outside this session's access.

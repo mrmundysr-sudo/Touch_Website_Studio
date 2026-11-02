@@ -49,9 +49,12 @@ jobs:
 
       - name: Verify APK
         run: |
-          APK=$(ls app/build/outputs/apk/debug/*.apk)
+          APK=$(ls app/build/outputs/apk/debug/*.apk | head -1)
           echo "APK: $APK"; ls -l "$APK"
-          "$ANDROID_HOME"/build-tools/*/aapt2 dump badging "$APK" | grep -E "package:|application-label:|sdkVersion|uses-permission"
+          AAPT2=$(ls "$ANDROID_HOME"/build-tools/*/aapt2 | sort -V | tail -1)
+          "$AAPT2" dump badging "$APK" > badging.txt
+          grep -E "^package:|application-label:|sdkVersion|uses-permission" badging.txt
+          grep -q "package: name='com.touchwebsitestudio.app'" badging.txt
           sha256sum "$APK"
 
       - name: Upload APK
