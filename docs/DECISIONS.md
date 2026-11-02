@@ -1,32 +1,16 @@
-# [App Name] — Decision Log
+# Touch Website Studio — Approved Decision Log
+2026-11-01; append new decisions rather than silently rewriting history.
 
-> Record confirmed decisions separately from brainstorming. Never silently rewrite history.
+- DEC-001 Approved: Android-first, local-first website studio.
+- DEC-002 Approved: Creation AND ongoing editing/maintenance are equal core purposes.
+- DEC-003 Approved: Customer owns website, hosting account, domain and files; no studio-hosted customer sites.
+- DEC-004 Approved: Two polished starter templates for first build, shared editing engine.
+- DEC-005 Approved: Visual quick edits without AI; optional provider-agnostic AI ZIP/share-sheet workflow.
+- DEC-006 Approved: Editable project ZIP distinct from deployable website ZIP.
+- DEC-007 Approved: Netlify as first one-button publishing target; real integration attempt in initial APK, honest verification status.
+- DEC-008 Approved: Save and Publish separate; explicit approval, snapshots and rollback.
+- DEC-009 Approved: Prioritize a working APK and CI evidence; develop on separate branch, no merge without approval.
+- DEC-010 Approved: Use Mundy-App-Template rules and Touch-Modules component discovery.
+- DEC-011 Directional: Bundle with Touch subscription family; final price/payment structure not finalized.
 
-## How to use
-1. Give each decision a stable ID: DEC-001, DEC-002, etc.
-2. Mark as **Proposed**, **Approved**, **Superseded**, or **Rejected**.
-3. Record the rationale and alternatives when known.
-4. Only an explicit owner approval changes a proposal to Approved.
-5. Link later changes to the prior decision; keep historical entries.
-
-## Decisions
-
-### DEC-001 — [Decision title]
-- **Status:** Proposed
-- **Date:** [YYYY-MM-DD]
-- **Decision:** [What is being decided]
-- **Rationale:** [Why]
-- **Alternatives:** [Options considered]
-- **Approved by:** [pending]
-- **Affected files/modules:** [if known]
-- **Supersedes:** None
-
-## Open questions
-| ID | Question | Status | Next step |
-|---|---|---|---|
-| Q-001 | [Question] | Open | [Research/discuss] |
-
-## Change history
-| Date | Change | Related decision |
-|---|---|---|
-| [YYYY-MM-DD] | Initial template | — |
+Technical design choices not listed here remain open and must be justified/tested.
