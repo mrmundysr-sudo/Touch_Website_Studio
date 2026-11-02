@@ -11,7 +11,7 @@ Dashboard (new/open/rename/duplicate/delete, status badges), two templates on on
 - JS tests: 12 (node --test), local pass.
 - JVM unit tests: 25 (storage 10, ZIP safety 5, Netlify client vs local mock 10), local pass.
 - UI smoke (headless Chromium, mocked native bridge): 22 checks, local pass; found and fixed one real bug (dialogs resolved `undefined`).
-- Local debug APK builds (≈100 KB). CI: run 1 failed on SDK setup (fixed); see BRANCH_STATUS for the latest run.
+- Local debug APK builds (≈100 KB). CI: run 1 failed on SDK setup (fixed); run 2 failed in my own APK-verify step (fixed); run 3 (`7e3118c`) green: https://github.com/mrmundysr-sudo/Touch_Website_Studio/actions/runs/41379784549
 
 ## NOT verified
 Live Netlify (api.netlify.com is blocked from the build sandbox; the client was tested only against a local mock), installation/running on a real device or emulator, Keystore, file pickers/SAF, share sheet, photo pipeline (BitmapFactory/EXIF), touch pinch on a real screen, budget-phone performance, accessibility with TalkBack, import of arbitrary third-party HTML (not implemented), release signing.

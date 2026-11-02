@@ -2,16 +2,15 @@
 
 > This file is a handoff guide, not the source of truth. Verify every branch, PR, commit, and CI result against GitHub before acting. Never infer that the default branch or most recent branch contains the newest app code.
 
-## Current handoff (fill with verified facts)
-- Default branch: `main` (template default; verify repository settings)
-- Active development branch: **Not established**
-- Latest verified APK branch / commit: **Not established**
-- Latest successful GitHub Actions run / artifact: **Not established**
-- Open PRs and their base/head: **Check GitHub**
-- Recommended starting ref for next task: **Determine after verification**
-- Current approved task: **See docs/DEVELOPMENT_PLAN.md and owner instructions**
-- Last reviewed (UTC): **Not reviewed**
-- Evidence links: **None yet**
+## Current handoff (verified 2026-11-02 UTC)
+- Default branch: `main` @ `32a69fd` (docs-only template; no app source, no workflows, no APKs, no other branches or PRs existed at start)
+- Active development branch: `claude/touch-website-studio-first-build` (NOT merged; no PR opened)
+- App source commit with a green build: `7e3118c` (CI run 3, success: JS tests, 25 JVM tests, assembleDebug, aapt2 package check)
+- CI run: https://github.com/mrmundysr-sudo/Touch_Website_Studio/actions/runs/41379784549 · artifact `Touch-Website-Studio-debug-3` (retention 14 days)
+- Earlier failed runs (history): run 1 (SDK setup action), run 2 (my verify step); both fixed.
+- Local build of the same source: sha256 `b97d51ea368d828678339a08220d217d54a82ab6d88b817300ce8ce2df4e2804`, debug-signed, minSdk 24.
+- Recommended starting ref for next task: this branch's HEAD.
+- Not verified: live Netlify, on-device behavior (see docs/knowledge/reports/2026-11-02-first-build.md).
 
 ## Mandatory session startup
 1. Confirm exact repository and default branch with GitHub.
